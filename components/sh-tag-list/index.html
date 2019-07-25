@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico">
+  <title>Shine</title>
+  <style>
+    body { 
+      min-height: 100vh;
+      background: #000046;
+      background: repeating-linear-gradient(45deg, #2b2b2b 0%, #2b2b2b 10%, #222222 0%, #222222 50%) 0 / 15px 15px;
+      transition: none;
+    }
+
+    body:not(.ready) > * {
+        display: none;
+    }
+
+    [vce-cloak] {
+      opacity: 0;
+      transition: none;
+      display: none !important;
+    }
+  </style>
+<link href="/sh-tag-listindex.html.js" rel="preload" as="script"></head>
+
+<body class="baseline30">
+  <div id="xxx">
+    <lib-notify vce-cloak id="notify"></lib-notify>
+    <lib-nav vce-cloak id="nav">
+  <ul slot="primary" id="nav-primary">
+    <li><a href="#belk-features">Belk Features</a></li>
+    <li><a href="#page-content">Content</a></li>
+    <li><a href="#navigation">Navigation</a></li>
+    <li><a href="#form-stuff">Forms</a></li>
+    <li><a href="#utilities">Utilities</a></li>
+  </ul>
+  <div slot="secondary">
+    <div id="belk-features">
+      <ul category="layout">
+        <li><a href="/components/belk-header">Header</a></li>
+        <li><a href="/components/belk-footer">Footer</a></li>
+      </ul>
+      <ul category="interact">
+        <li><a href="/components/belk-search">Search</a></li>
+        <li><a href="/components/belk-mega-nav">Mega Nav</a></li>
+        <li><a href="/components/belk-bag">Bag</a></li>
+        <li><a href="/components/belk-locator">Locator</a></li>
+      </ul>
+      <ul category="present">
+        <li><a href="/components/belk-product-tile">Product Tile</a></li>
+        <li><a href="/components/belk-product-detail">Product Detail</a></li>
+      </ul>
+    </div>
+    <div id="page-content">
+      <ul category="interact">
+        <li><a href="/components/sh-accordion">Accordion</a></li>
+        <li><a href="/components/sh-carousel">Carousel</a></li>
+        <li><a href="/components/sh-modal">Modal</a></li>
+        <li><a disabled href="/components/sh-scroll">Scroll</a></li>
+        <li><a href="/components/sh-slider">Slider</a></li>
+        <li><a href="/components/sh-tabs">Tabs</a></li>
+      </ul>
+      <ul category="present">
+        <li><a href="/components/sh-adapt-content">Adapt Content</a></li>
+        <li><a disabled href="/components/sh-picture">Picture</a></li>
+        <li><a disabled href="/components/sh-image">Image</a></li>
+        <li><a href="/components/sh-tooltip">Tooltip</a></li>
+        <li><a href="/components/sh-rating">Rating</a></li>
+      </ul>
+      <ul category="call to act">
+        <li><a href="/components/sh-banner">Banner</a></li>
+        <li><a href="/components/sh-button">Button</a></li>
+        <li><a disabled href="/components/sh-flyout">Flyout</a></li>
+        <li><a disabled href="/components/sh-popover">Popover</a></li>
+      </ul>
+    </div>
+    <div id="navigation">
+      <ul category="linking">
+        <li><a href="/components/sh-dropnav">Dropnav</a></li>
+        <li><a disabled href="/components/sh-mega-menu">Mega Menu</a></li>
+        <li><a disabled href="/components/sh-sitemap">Sitemap</a></li>
+        <li><a href="/components/sh-link-list">Link List</a></li>
+      </ul>
+    </div>
+    <div id="form-stuff">
+      <ul category="contain">
+        <li><a href="/components/sh-form">Form</a></li>
+        <li><a disabled href="/components/sh-fieldset">Fieldset</a></li>
+        <li><a disabled href="/components/sh-radio-group">Radio Group</a></li>
+      </ul>
+      <ul category="elements">
+        <li><a disabled href="/components/sh-checkbox">Checkbox</a></li>
+        <li><a href="/components/sh-input">Input</a></li>
+        <li><a disabled href="/components/sh-progress-bar">Progress Bar</a></li>
+        <li><a disabled href="/components/sh-radio">Radio</a></li>
+        <li><a disabled href="/components/sh-select">Select</a></li>
+        <li><a disabled href="/components/sh-textarea">Textarea</a></li>
+      </ul>
+    </div>
+    <div id="utilities">
+      <ul category="css">
+        <li><a href="/utilities/classes">OO Classes</a></li>
+        <li><a href="/utilities/classes#box-model">Box Model</a></li>
+        <li><a href="/utilities/classes#typography">Typography</a></li>
+        <li><a href="/utilities/icons">Icons</a></li>
+      </ul>
+      <ul category="javascript">
+        <li><a href="/utilities/event-bus">Event Bus</a></li>
+        <li><a href="/utilities/prototype">Component Prototype</a></li>
+      </ul>
+    </div>
+  </div>
+</lib-nav>
+    <div id="page">
+      <lib-header vce-cloak id="header"></lib-header>
+      <lib-section-links vce-cloak></lib-section-links>
+      <lib-content vce-cloak></lib-content>
+      <main>
+        <div>
+          <div class="documentation contain">
+  <h1>Tag List</h1>
+  <section id="usage">
+    <h2>Usage</h2>
+    <pre>
+      <code class="language-html">
+          &lt;sh-tag-list&gt;new component&lt;/sh-tag-list&gt;
+      </code>
+    </pre>
+
+  </section>
+
+  <section id="reference">
+    <h2>Reference</h2>
+    <h3 id="attributes">Attributes</h3>
+
+    <table class="attributes">
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>hidden</td>
+          <td>Boolean</td>
+          <td>Hide from view.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 id="slots">Slots</h3>
+
+    <table class="slots">
+      <thead>
+        <tr>
+          <th>Slot</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>default</td>
+          <td>
+            Text content.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 id="methods">Public Methods</h3>
+
+    <table class="methods">
+      <thead>
+        <tr>
+          <th>Function</th>
+          <th>Params</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>snap</td>
+          <td>
+            <ul>
+              <li>
+                none
+              </li>
+            </ul>
+          </td>
+          <td>
+            Perform snap animation and half text.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 id="events">Events</h3>
+
+    <table class="events">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Payload Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>event-name</td>
+          <td>
+            Type
+          </td>
+          <td>
+            Fires when something happens.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="examples">
+    <h2>Examples</h2>
+    <h3>Default</h3>
+    <lib-toolbar>
+      <sh-tag-list>TEXT THAT IS EVEN AND STILL EXISTS</sh-tag-list>
+    </lib-toolbar>
+  </section>
+
+  <section id="changelog">
+    <h2>Changelog</h2>
+    <dl>
+      <dt>0.1.0</dt>
+      <dd>Tag is under development.</dd>
+      <dt>1.0.0</dt>
+      <dd>Tag is ready for use.</dd>
+      <dt>1.0.1</dt>
+      <dd><strong>PATCH</strong> version when you make backwards-compatible bug fixes.</dd>
+      <dt>1.1.0</dt>
+      <dd><strong>MINOR</strong> version when you add functionality in a backwards-compatible manner.</dd>
+      <dt>2.0.0</dt>
+      <dd><strong>MAJOR</strong> version when you make incompatible API changes.</dd>
+    </dl>
+  </section>
+</div>
+        </div>
+        <footer>
+  <div class="contain pad text-center">
+    x X x
+  </div>
+</footer>
+      </main>
+    </div> <!-- #page end -->
+    <sh-curtain vce-cloak id="curtain"></sh-curtain>
+    <lib-control-panel vce-cloak id="control"></lib-control-panel>
+  </div> 
+  <!-- built files will be auto injected -->
+<script type="text/javascript" src="/sh-tag-listindex.html.js"></script></body>
+
+</html>

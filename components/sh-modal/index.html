@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico">
+  <title>Shine</title>
+  <style>
+    body { 
+      min-height: 100vh;
+      background: #000046;
+      background: repeating-linear-gradient(45deg, #2b2b2b 0%, #2b2b2b 10%, #222222 0%, #222222 50%) 0 / 15px 15px;
+      transition: none;
+    }
+
+    body:not(.ready) > * {
+        display: none;
+    }
+
+    [vce-cloak] {
+      opacity: 0;
+      transition: none;
+      display: none !important;
+    }
+  </style>
+<link href="/sh-modalindex.html.js" rel="preload" as="script"></head>
+
+<body class="baseline30">
+  <div id="xxx">
+    <lib-notify vce-cloak id="notify"></lib-notify>
+    <lib-nav vce-cloak id="nav">
+  <ul slot="primary" id="nav-primary">
+    <li><a href="#belk-features">Belk Features</a></li>
+    <li><a href="#page-content">Content</a></li>
+    <li><a href="#navigation">Navigation</a></li>
+    <li><a href="#form-stuff">Forms</a></li>
+    <li><a href="#utilities">Utilities</a></li>
+  </ul>
+  <div slot="secondary">
+    <div id="belk-features">
+      <ul category="layout">
+        <li><a href="/components/belk-header">Header</a></li>
+        <li><a href="/components/belk-footer">Footer</a></li>
+      </ul>
+      <ul category="interact">
+        <li><a href="/components/belk-search">Search</a></li>
+        <li><a href="/components/belk-mega-nav">Mega Nav</a></li>
+        <li><a href="/components/belk-bag">Bag</a></li>
+        <li><a href="/components/belk-locator">Locator</a></li>
+      </ul>
+      <ul category="present">
+        <li><a href="/components/belk-product-tile">Product Tile</a></li>
+        <li><a href="/components/belk-product-detail">Product Detail</a></li>
+      </ul>
+    </div>
+    <div id="page-content">
+      <ul category="interact">
+        <li><a href="/components/sh-accordion">Accordion</a></li>
+        <li><a href="/components/sh-carousel">Carousel</a></li>
+        <li><a href="/components/sh-modal">Modal</a></li>
+        <li><a disabled href="/components/sh-scroll">Scroll</a></li>
+        <li><a href="/components/sh-slider">Slider</a></li>
+        <li><a href="/components/sh-tabs">Tabs</a></li>
+      </ul>
+      <ul category="present">
+        <li><a href="/components/sh-adapt-content">Adapt Content</a></li>
+        <li><a disabled href="/components/sh-picture">Picture</a></li>
+        <li><a disabled href="/components/sh-image">Image</a></li>
+        <li><a href="/components/sh-tooltip">Tooltip</a></li>
+        <li><a href="/components/sh-rating">Rating</a></li>
+      </ul>
+      <ul category="call to act">
+        <li><a href="/components/sh-banner">Banner</a></li>
+        <li><a href="/components/sh-button">Button</a></li>
+        <li><a disabled href="/components/sh-flyout">Flyout</a></li>
+        <li><a disabled href="/components/sh-popover">Popover</a></li>
+      </ul>
+    </div>
+    <div id="navigation">
+      <ul category="linking">
+        <li><a href="/components/sh-dropnav">Dropnav</a></li>
+        <li><a disabled href="/components/sh-mega-menu">Mega Menu</a></li>
+        <li><a disabled href="/components/sh-sitemap">Sitemap</a></li>
+        <li><a href="/components/sh-link-list">Link List</a></li>
+      </ul>
+    </div>
+    <div id="form-stuff">
+      <ul category="contain">
+        <li><a href="/components/sh-form">Form</a></li>
+        <li><a disabled href="/components/sh-fieldset">Fieldset</a></li>
+        <li><a disabled href="/components/sh-radio-group">Radio Group</a></li>
+      </ul>
+      <ul category="elements">
+        <li><a disabled href="/components/sh-checkbox">Checkbox</a></li>
+        <li><a href="/components/sh-input">Input</a></li>
+        <li><a disabled href="/components/sh-progress-bar">Progress Bar</a></li>
+        <li><a disabled href="/components/sh-radio">Radio</a></li>
+        <li><a disabled href="/components/sh-select">Select</a></li>
+        <li><a disabled href="/components/sh-textarea">Textarea</a></li>
+      </ul>
+    </div>
+    <div id="utilities">
+      <ul category="css">
+        <li><a href="/utilities/classes">OO Classes</a></li>
+        <li><a href="/utilities/classes#box-model">Box Model</a></li>
+        <li><a href="/utilities/classes#typography">Typography</a></li>
+        <li><a href="/utilities/icons">Icons</a></li>
+      </ul>
+      <ul category="javascript">
+        <li><a href="/utilities/event-bus">Event Bus</a></li>
+        <li><a href="/utilities/prototype">Component Prototype</a></li>
+      </ul>
+    </div>
+  </div>
+</lib-nav>
+    <div id="page">
+      <lib-header vce-cloak id="header"></lib-header>
+      <lib-section-links vce-cloak></lib-section-links>
+      <lib-content vce-cloak></lib-content>
+      <main>
+        <div>
+          <div class="documentation contain">
+  <h1>modal</h1>
+  <section id="usage">
+    <h2>Usage</h2>
+    <pre>
+      <code class="language-html">
+        &lt;sh-modal header="Modal Header" unique-id="string"&gt;
+          &lt;p&gt;
+            Lorem ipsum doler.
+          &lt;/p&gt;
+        &lt;/sh-modal&gt;
+      </code>
+    </pre>
+    <p>Modals can be added anywhere within content. It will automatically remove itself from the flow of the document and be re-attached to a container at the bottom of the DOM.</p>
+    <p>Modals can be triggered by <code class="lang-markup">modal-trigger='uniqueId'</code> from any element (like a button) or directly linked to from an anchor tag: <code class="lang-markup">href='#uniqueId'</code></p>
+    <p>If a user lands on a page with a modal targeted via hash it will open automatically: <a href="/components/sh-modal#demo-default">reload with hash</a></p>
+  </section>
+
+  <section id="reference">
+    <h2>Reference</h2>
+
+    <h3 id="attributes">Attributes</h3>
+
+    <table class="attributes">
+      <thead>
+        <tr>
+          <th>Attribute</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>unique-id</td>
+          <td>String</td>
+          <td>
+            <ul>
+              <li>Unique ID.</li>
+              <li>This is a <strong>required</strong> attribute.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>variant</td>
+          <td>String</td>
+          <td>
+            <ul>
+              <li>Change the way the modal is rendered.</li>
+              <li>Options: primary (default), secondary, tertiary</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>header</td>
+          <td>String</td>
+          <td>
+            Content for the modal header.
+          </td>
+        </tr>
+        <tr>
+          <td>footer</td>
+          <td>String</td>
+          <td>
+            Content for modal footer.
+          </td>
+        </tr>
+        <tr>
+          <td>content-url</td>
+          <td>String</td>
+          <td>
+            URL endpoint for ajaxing content into the modal.
+          </td>
+        </tr>
+        <tr>
+          <td>content-selector</td>
+          <td>String</td>
+          <td>
+            Selector to target specific content in the returned ajax call.
+          </td>
+        </tr>
+        <tr>
+          <td>overlay</td>
+          <td>String</td>
+          <td>
+            <ul>
+              <li>
+                Define the main color for the overlay.
+              </li>
+              <li>
+                Options are all base color variables (accent-ordinal, lowlight-ordinal, highlight-ordinal) and 'none'.
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 id="slots">Slots</h3>
+
+    <table class="slots">
+      <thead>
+        <tr>
+          <th>Slot</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>header</td>
+          <td>
+            HTML content for the header of the modal.
+          </td>
+        </tr>
+        <tr>
+          <td>content</td>
+          <td>
+            HTML content for the main area of the modal.
+          </td>
+        </tr>
+        <tr>
+          <td>footer</td>
+          <td>
+            HTML content for the footer of the modal.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 id="methods">Public Methods</h3>
+
+    <table class="methods">
+      <thead>
+        <tr>
+          <th>Function</th>
+          <th>Params</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>open</td>
+          <td>
+            <ul>
+              <li>
+                none
+              </li>
+            </ul>
+          </td>
+          <td>
+            Trigger the modal. This will close other open modals.
+          </td>
+        </tr>
+        <tr>
+          <td>close</td>
+          <td>
+            <ul>
+              <li>
+                clearHash
+              </li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li>
+                This will close all open modals.
+              </li>
+              <li>
+                <code class="lang-js">clearHash</code> is a boolean that defaults to true.
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 id="events">Events</h3>
+
+    <table class="events">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Payload Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>modal-opening</td>
+          <td>
+            String
+          </td>
+          <td>
+            <ul>
+              <li>Fires before the modal opens.</li>
+              <li>Payload is the ID of the modal that will open.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>modal-opened</td>
+          <td>
+            String
+          </td>
+          <td>
+            <ul>
+              <li>Fires immediately after the modal opens.</li>
+              <li>Payload is the ID of the modal that has opened.</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="examples">
+    <h2>Examples</h2>
+
+    <h3 class="margin-b-quarter">Default</h3>
+    <lib-toolbar>
+      <sh-button modal-trigger="demo-default">Open modal</sh-button>
+      <sh-modal unique-id="demo-default" header="Modal Header">
+        <p>
+          Magna <a href="#" modal-trigger="demo-2">demo modal 2</a> commodo ullamco occaecat ut ex ea reprehenderit.
+          Deserunt laborum in proident aliquip dolore dolor cupidatat. Ex labore
+          nisi magna ut voluptate adipisicing adipisicing elit nostrud enim eu
+          velit reprehenderit. Do id cillum et aliqua culpa exercitation aliquip
+          incididunt ea amet. Nisi esse sit in fugiat culpa.
+        </p>
+
+        <p>
+          Esse ipsum reprehenderit id nostrud consectetur reprehenderit est
+          pariatur pariatur eiusmod. Nisi est exercitation cillum laborum
+          officia esse esse occaecat amet ad velit anim cupidatat. Fugiat
+          consequat ullamco dolor et occaecat sit id ex. Sunt cillum do proident
+          occaecat magna ullamco eiusmod adipisicing excepteur. Quis incididunt
+          mollit est labore fugiat mollit minim eu. Et fugiat ipsum velit anim
+          eiusmod nisi aliquip aute. Eiusmod deserunt ullamco consectetur est
+          duis anim nostrud anim aliqua nostrud.
+        </p>
+
+        <p>
+          Consequat est deserunt laboris mollit in fugiat deserunt cillum
+          laboris cillum non culpa labore. Deserunt irure culpa voluptate ex ex
+          in. Ullamco eiusmod incididunt eiusmod ipsum sint tempor exercitation
+          exercitation aliqua adipisicing deserunt aliquip esse culpa.
+        </p>
+
+        <p>
+          Cupidatat quis officia incididunt adipisicing eiusmod dolore id ut
+          Lorem qui anim et. Nisi consequat minim anim eiusmod aliqua eu
+          deserunt ex. Sunt labore duis nisi laboris Lorem enim labore cillum
+          enim enim et elit est ullamco. Ad proident excepteur quis enim
+          voluptate aute irure ipsum veniam dolore.
+        </p>
+        <div slot="footer">
+          <p class="text-center">I <a href="#" close-trigger>agree</a> to the terms and conditions.</p>
+        </div>
+      </sh-modal>
+    </lib-toolbar>
+
+    <h3 class="margin-b-quarter">Variants</h3>
+      <sh-button modal-trigger="demo-variant-primary">Primary</sh-button>
+      <sh-modal variant="primary" unique-id="demo-variant-primary">
+        <p>"Primary" variant.</p>
+      </sh-modal>
+      
+      <sh-button modal-trigger="demo-variant-secondary">Secondary</sh-button>
+      <sh-modal variant="secondary" unique-id="demo-variant-secondary">
+        <p>"Secondary" variant.</p>
+      </sh-modal>
+    </lib-toolbar>
+
+    <h3 class="margin-b-quarter">Remote Content (Ajax)</h3>
+    <lib-toolbar>
+      <sh-button modal-trigger="demo-ajax">Basic</sh-button>
+      <sh-modal unique-id="demo-ajax" content-url="/components/sh-modal/data/ajax-test.html">
+        <div slot="footer">
+          <div class="flex center pad">
+            <sh-button close-trigger>Continue</sh-button>
+          </div>
+        </div>
+      </sh-modal>
+    </lib-toolbar>
+
+    <lib-toolbar>
+      <sh-button modal-trigger="demo-ajax-target">Targeted</sh-button>
+      <sh-modal unique-id="demo-ajax-target" content-url="/components/sh-modal/data/ajax-test.html" content-selector="#primary">
+        <div slot="footer">
+          <div class="flex center pad">
+            <sh-button close-trigger>Continue</sh-button>
+          </div>
+        </div>
+      </sh-modal>
+    </lib-toolbar>
+
+    <h3 class="margin-b-quarter">Reveal Animations</h3>
+    <lib-toolbar>
+      <sh-button modal-trigger="demo-reveal-default">Default</sh-button>
+      <sh-modal variant="primary" unique-id="demo-reveal-default">
+        <p>The default reveal is a simple opacity fade.</p>
+      </sh-modal>
+      
+      <sh-button modal-trigger="demo-reveal-left">From Left</sh-button>
+      <sh-modal reveal="left" variant="primary" unique-id="demo-reveal-left">
+        <p>From left!</p>
+      </sh-modal>
+
+      <sh-button modal-trigger="demo-reveal-right">From Right</sh-button>
+      <sh-modal reveal="right" variant="primary" unique-id="demo-reveal-right">
+        <p>From right!</p>
+      </sh-modal>
+
+      <sh-button modal-trigger="demo-reveal-top">From Top</sh-button>
+      <sh-modal reveal="top" variant="primary" unique-id="demo-reveal-top">
+        <p>From top!</p>
+      </sh-modal>
+
+      <sh-button modal-trigger="demo-reveal-bottom">From Bottom</sh-button>
+      <sh-modal reveal="bottom" variant="primary" unique-id="demo-reveal-bottom">
+        <p>From bottom!</p>
+      </sh-modal>
+    </lib-toolbar>
+
+    <h3 class="margin-b-quarter">History State Management</h3>
+    <lib-toolbar>
+      <sh-button modal-trigger="demo-history1">Launch First Modal</sh-button>
+      <sh-modal unique-id="demo-history1" header="First Modal">
+        <p>
+          Click <a href="#demo-history2">here</a> to progress to the second modal.
+        </p>
+      </sh-modal>
+
+      <sh-modal unique-id="demo-history2" header="Second Modal">
+        <p>
+          Click <a href="#demo-history3">here</a> to progress to the third modal.
+        </p>
+      </sh-modal>
+
+      <sh-modal unique-id="demo-history3" header="Third Modal">
+        <p>
+          That's it! Now use the back button on your browser to return through the previous states.
+        </p>
+      </sh-modal>
+    </lib-toolbar>
+
+    <h3 class="margin-b-quarter">Overlays</h3>
+    <lib-toolbar>
+      <sh-button modal-trigger="demo-overlay1">Accent Overlay</sh-button>
+      <sh-modal variant="primary" overlay="accent-primary" unique-id="demo-overlay1">
+        <p>Primary accent background.</p>
+      </sh-modal>
+    </lib-toolbar>
+    <lib-toolbar>
+      <sh-button modal-trigger="demo-overlay2">Lowlight Overlay</sh-button>
+      <sh-modal variant="primary" overlay="lowlight-primary" unique-id="demo-overlay2">
+        <p>Primary lowlight background.</p>
+      </sh-modal>
+    </lib-toolbar>
+    <lib-toolbar>
+      <sh-button modal-trigger="demo-overlay3">Highlight Overlay</sh-button>
+      <sh-modal variant="primary" overlay="highlight-primary" unique-id="demo-overlay3">
+        <p>Primary highlight background.</p>
+      </sh-modal>
+    </lib-toolbar>
+    <lib-toolbar>
+      <sh-button modal-trigger="demo-overlay4">No Overlay</sh-button>
+      <sh-modal variant="primary" overlay="none" unique-id="demo-overlay4">
+        <p>No overlay.</p>
+      </sh-modal>
+    </lib-toolbar>
+  </section>
+
+  <section id="changelog">
+    <h2>Changelog</h2>
+    <dl>
+      <dt>1.0.0</dt>
+      <dd>Component was created.</dd>
+      <dt>1.1.0</dt>
+      <dd>Added ability to pull content from an external URL with <code>content-url</code> and
+        <code>content-selector</code>.
+      </dd>
+      <dt>1.2.0</dt>
+      <dd>
+        Added ability to theme the overlay via the <code>overlay</code> attribute.
+      </dd>
+    </dl>
+  </section>
+</div>
+        </div>
+        <footer>
+  <div class="contain pad text-center">
+    x X x
+  </div>
+</footer>
+      </main>
+    </div> <!-- #page end -->
+    <sh-curtain vce-cloak id="curtain"></sh-curtain>
+    <lib-control-panel vce-cloak id="control"></lib-control-panel>
+  </div> 
+  <!-- built files will be auto injected -->
+<script type="text/javascript" src="/sh-modalindex.html.js"></script></body>
+
+</html>

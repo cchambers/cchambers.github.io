@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico">
+  <title>Shine</title>
+  <style>
+    body { 
+      min-height: 100vh;
+      background: #000046;
+      background: repeating-linear-gradient(45deg, #2b2b2b 0%, #2b2b2b 10%, #222222 0%, #222222 50%) 0 / 15px 15px;
+      transition: none;
+    }
+
+    body:not(.ready) > * {
+        display: none;
+    }
+
+    [vce-cloak] {
+      opacity: 0;
+      transition: none;
+      display: none !important;
+    }
+  </style>
+<link href="/classes.js" rel="preload" as="script"></head>
+
+<body class="baseline30">
+  <div id="xxx">
+    <lib-notify vce-cloak id="notify"></lib-notify>
+    <lib-nav vce-cloak id="nav">
+  <ul slot="primary" id="nav-primary">
+    <li><a href="#belk-features">Belk Features</a></li>
+    <li><a href="#page-content">Content</a></li>
+    <li><a href="#navigation">Navigation</a></li>
+    <li><a href="#form-stuff">Forms</a></li>
+    <li><a href="#utilities">Utilities</a></li>
+  </ul>
+  <div slot="secondary">
+    <div id="belk-features">
+      <ul category="layout">
+        <li><a href="/components/belk-header">Header</a></li>
+        <li><a href="/components/belk-footer">Footer</a></li>
+      </ul>
+      <ul category="interact">
+        <li><a href="/components/belk-search">Search</a></li>
+        <li><a href="/components/belk-mega-nav">Mega Nav</a></li>
+        <li><a href="/components/belk-bag">Bag</a></li>
+        <li><a href="/components/belk-locator">Locator</a></li>
+      </ul>
+      <ul category="present">
+        <li><a href="/components/belk-product-tile">Product Tile</a></li>
+        <li><a href="/components/belk-product-detail">Product Detail</a></li>
+      </ul>
+    </div>
+    <div id="page-content">
+      <ul category="interact">
+        <li><a href="/components/sh-accordion">Accordion</a></li>
+        <li><a href="/components/sh-carousel">Carousel</a></li>
+        <li><a href="/components/sh-modal">Modal</a></li>
+        <li><a disabled href="/components/sh-scroll">Scroll</a></li>
+        <li><a href="/components/sh-slider">Slider</a></li>
+        <li><a href="/components/sh-tabs">Tabs</a></li>
+      </ul>
+      <ul category="present">
+        <li><a href="/components/sh-adapt-content">Adapt Content</a></li>
+        <li><a disabled href="/components/sh-picture">Picture</a></li>
+        <li><a disabled href="/components/sh-image">Image</a></li>
+        <li><a href="/components/sh-tooltip">Tooltip</a></li>
+        <li><a href="/components/sh-rating">Rating</a></li>
+      </ul>
+      <ul category="call to act">
+        <li><a href="/components/sh-banner">Banner</a></li>
+        <li><a href="/components/sh-button">Button</a></li>
+        <li><a disabled href="/components/sh-flyout">Flyout</a></li>
+        <li><a disabled href="/components/sh-popover">Popover</a></li>
+      </ul>
+    </div>
+    <div id="navigation">
+      <ul category="linking">
+        <li><a href="/components/sh-dropnav">Dropnav</a></li>
+        <li><a disabled href="/components/sh-mega-menu">Mega Menu</a></li>
+        <li><a disabled href="/components/sh-sitemap">Sitemap</a></li>
+        <li><a href="/components/sh-link-list">Link List</a></li>
+      </ul>
+    </div>
+    <div id="form-stuff">
+      <ul category="contain">
+        <li><a href="/components/sh-form">Form</a></li>
+        <li><a disabled href="/components/sh-fieldset">Fieldset</a></li>
+        <li><a disabled href="/components/sh-radio-group">Radio Group</a></li>
+      </ul>
+      <ul category="elements">
+        <li><a disabled href="/components/sh-checkbox">Checkbox</a></li>
+        <li><a href="/components/sh-input">Input</a></li>
+        <li><a disabled href="/components/sh-progress-bar">Progress Bar</a></li>
+        <li><a disabled href="/components/sh-radio">Radio</a></li>
+        <li><a disabled href="/components/sh-select">Select</a></li>
+        <li><a disabled href="/components/sh-textarea">Textarea</a></li>
+      </ul>
+    </div>
+    <div id="utilities">
+      <ul category="css">
+        <li><a href="/utilities/classes">OO Classes</a></li>
+        <li><a href="/utilities/classes#box-model">Box Model</a></li>
+        <li><a href="/utilities/classes#typography">Typography</a></li>
+        <li><a href="/utilities/icons">Icons</a></li>
+      </ul>
+      <ul category="javascript">
+        <li><a href="/utilities/event-bus">Event Bus</a></li>
+        <li><a href="/utilities/prototype">Component Prototype</a></li>
+      </ul>
+    </div>
+  </div>
+</lib-nav>
+    <div id="page">
+      <lib-header vce-cloak id="header"></lib-header>
+      <lib-section-links vce-cloak></lib-section-links>
+      <lib-content vce-cloak></lib-content>
+      <main>
+        <div>
+          <div class="documentation contain">
+  <h1>OO Classes</h1>
+  <section id="usage">
+    <h2>Usage</h2>
+    <p>
+      <sh-tooltip tip="Object-oriented">OO</sh-tooltip> classes that can be used to style or space content. They are not
+      used in component creation, but the variables used to create them are.
+    </p>
+    <pre>
+      <code class="language-html">
+        &lt;p class="px30 font-primary" &gt;Lorem ipsum dolor...&lt;/p&gt;
+      </code>
+    </pre>
+  </section>
+
+  <!-- <section id="animation">
+    <h2>Animation</h2>
+
+    <h3>Staging</h3>
+    <table class="class-defs">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>Effect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code class="language-css">.stage-left</code>
+          </td>
+          <td>
+            Position something off-screen to the left.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code class="language-css">.stage-right</code>
+          </td>
+          <td>
+            Position something off-screen to the right.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code class="language-css">.stage-top</code>
+          </td>
+          <td>
+            Position something off-screen to the top.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code class="language-css">.stage-bottom</code>
+          </td>
+          <td>
+            Position something off-screen to the bottom.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section> -->
+
+  <section id="box-model">
+    <h2>Box Model</h2>
+
+    <h3>Padding</h3>
+    <table class="class-defs">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>Effect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code class="language-css">.pad{-edge}{-amount}</code>
+          </td>
+          <td>
+            <ul>
+              <li>
+                Modify the padding of an element.
+              </li>
+              <li>
+                  Left+right edge combined is <code>x</code>, top+bottom edges combined
+                  is <code>y</code>. Other options are "t", "r", "b", "l".
+              </li>
+              <li>
+                Options for 'amount' are: <em>none</em>, 'quarter', 'half', and 'double'.
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Margin</h3>
+    <table class="class-defs">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>Effect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code class="language-css">.margin{-edge}{-amount}</code>
+          </td>
+          <td>
+            <ul>
+              <li>
+                Modify the margin of an element. Left+right edge combined is <code>x</code>, top+bottom edges combined
+                is <code>y</code>.
+              </li>
+              <li>
+                  Left+right edge combined is <code>x</code>, top+bottom edges combined
+                  is <code>y</code>. Other options are "t", "r", "b", "l".
+              </li>
+              <li>
+                Options for 'amount' are: <em>none</em>, 'quarter', 'half', and 'double'.
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code class="language-css">.pull{-edge}{-amount}</code>
+          </td>
+          <td>
+            <ul>
+              <li>
+                Modify the negative margin of an element.
+              </li>
+              <li>
+                  Left+right edge combined is <code>x</code>, top+bottom edges combined
+                  is <code>y</code>. Other options are "t", "r", "b", "l".
+              </li>
+              <li>
+                Options for 'amount' are: <em>none</em>, 'quarter', 'half', and 'double'.
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  </section>
+
+  <section id="typography">
+    <h2>Typography</h2>
+
+    <h3 id="alignment">Size and Line Height</h3>
+    <table class="class-defs">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>Effect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code class="language-css">.pxNN</code>
+          </td>
+          <td>
+            <ul>
+              <li>
+                Set the [responsive] font size of a piece of content.
+              </li>
+              <li>
+                Options range from 10-100. ex: .px62
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code class="language-css">.lhNN</code>
+          </td>
+          <td>
+            <ul>
+              <li>
+                Set the [responsive] line height of a piece of content.
+              </li>
+              <li>
+                Options range from 10-100. ex: .lh30
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 id="alignment">Alignment</h3>
+    <table class="class-defs">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>Effect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code class="language-css">.text-right</code>
+          </td>
+          <td>
+            Right align text.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code class="language-css">.text-left</code>
+          </td>
+          <td>
+            Left align text.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code class="language-css">.text-center</code>
+          </td>
+          <td>
+            Center align text.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code class="language-css">.text-justify</code>
+          </td>
+          <td>
+            Align text justified.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code class="language-css">.force-justify</code>
+          </td>
+          <td>
+            Align text justified forced (justifies the last line and single-line paragraphs).
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 id="alignment">Casing</h3>
+    <table class="class-defs">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>Effect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code class="language-css">.uppercase</code>
+          </td>
+          <td>
+            <div class="uppercase">Uppercased text.</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code class="language-css">.lowercase</code>
+          </td>
+          <td>
+            <div class="lowercase">Lowercased text.</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code class="language-css">.normalcase</code>
+          </td>
+          <td>
+            <div class="normalcase">Normal casing.</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code class="language-css">.titlecase</code>
+          </td>
+          <td>
+            <div class="titlecase">Title Casing.</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 id="alignment">Style</h3>
+    <table class="class-defs">
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>Effect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code class="language-css">.strike</code>
+          </td>
+          <td>
+            <div class="strike">Strikethrough text.</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code class="language-css">.italic</code>
+          </td>
+          <td>
+            <div class="italic">Italicized text.</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code class="language-css">.light</code>
+          </td>
+          <td>
+            <div class="light">Light (weight) text.</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code class="language-css">.normal</code>
+          </td>
+          <td>
+            <div class="normal">Normal (weight) text.</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code class="language-css">.bold</code>
+          </td>
+          <td>
+            <div class="bold">Bold (weight) text.</div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code class="language-css">.heavy</code>
+          </td>
+          <td>
+            <div class="heavy">Heavy (weight) text.</div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="changelog">
+    <h2>Changelog</h2>
+    <dl>
+      <dt>1.0.0</dt>
+      <dd>Basicss integration.</dd>
+    </dl>
+  </section>
+</div>
+        </div>
+        <footer>
+  <div class="contain pad text-center">
+    x X x
+  </div>
+</footer>
+      </main>
+    </div> <!-- #page end -->
+    <sh-curtain vce-cloak id="curtain"></sh-curtain>
+    <lib-control-panel vce-cloak id="control"></lib-control-panel>
+  </div> 
+  <!-- built files will be auto injected -->
+<script type="text/javascript" src="/classes.js"></script></body>
+
+</html>
